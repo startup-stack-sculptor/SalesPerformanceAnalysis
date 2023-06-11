@@ -10,10 +10,10 @@ months = calendar.month_name[1:]
 
 
 
-
 # Read the sales data from a CSV file
 sales_data = pd.read_csv("data/Sales_April_2019.csv")
 df = pd.DataFrame(sales_data)
+df['City'] = df['Purchase Address'].str.split(',').str[1].str.strip()
 
 # Extract the relevant columns
 
@@ -29,13 +29,12 @@ def main():
 
     # Sidebar
     st.sidebar.header("Please Filter here:")
-    address = st.sidebar.multiselect(
-        "Select the city",
-        key="address",
-        options=df["Purchase Address"].unique(),
+
+    cities = st.sidebar.multiselect(
+        "select the cities",
+        options=df['City'].unique(),
         default=[]
     )
-
     price = st.sidebar.multiselect(
         "Select the product price",
         options=df["Price Each"].unique(),
@@ -59,14 +58,14 @@ def main():
 
     # Total sales by month
     df_selection = df.query(
-        "Product == @product"
+        "City == @cities"
     )
-    total_sales = df_selection["Quantity Ordered"].sum()
+    total_sales = df_selection["Quantity Ordered"].astype(int).sum()
     left_column, middle_column, right_column = st.columns(3)
 
     with left_column:
         st.subheader("Total sales:")
-        st.subheader(f"US {total_sales}")
+        st.subheader(f"Qty {total_sales}")
 
     with middle_column:
         st.subheader("Average rating")
