@@ -2,7 +2,7 @@
 
 This project aims to create a dynamic and interactive sales performance analysis dashboard using Python, Streamlit, and related technologies. The dashboard provides insights into sales data, allowing users to explore and analyse sales performance metrics, identity trends, and make data-driven decisions.
 
-[[https://raw.githubusercontent.com/4mishra/SalesPerformanceAnalysis/main/gifs/output.gif][Demo video]]
+[[https://raw.githubusercontent.com/4mishra/SalesPerformanceAnalysis/main/gifs/output.gif]]
 ** Features
 
 1. *Data Visualization*: Utilize various visualization techniques to present sales data in an intuitive and visually appealing manner. This includes charts, graphs, and interactive plots to showcase sales trends, revenue distribution, product performance, and regional sales data.
