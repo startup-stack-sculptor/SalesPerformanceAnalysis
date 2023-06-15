@@ -62,7 +62,7 @@ def main():
     df_selection = df.query(
         "City == @cities"
     )
-    total_sales = df_selection["Quantity Ordered"].astype(int).sum()
+    total_sales = df_selection["Quantity Ordered"].sum()
     left_column, middle_column, right_column = st.columns(3)
 
     with left_column:
